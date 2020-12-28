@@ -58,7 +58,8 @@ func init() {
 	rootCmd.PersistentFlags().BoolVar(&options.DisableLogging, "disable-logging", false, "disable all logging")
 	// global
 	rootCmd.PersistentFlags().BoolVar(&db.Disabled, "disable-db", false, "disable all database operations")
-	rootCmd.PersistentFlags().StringVarP(&db.Path, "db-path", "D", "gowitness.sqlite3", "destination for the gowitness database")
+	rootCmd.PersistentFlags().BoolVarP(&db.UseMySQL, "use-mysql", "M", false, "Use MySQL instead of SQLite")
+	rootCmd.PersistentFlags().StringVarP(&db.Path, "db-path", "D", "gowitness.sqlite3", "destination for the gowitness database, in case of MySQL this should be the path to the config file")
 	rootCmd.PersistentFlags().IntVarP(&chrm.ResolutionX, "resolution-x", "X", 1440, "screenshot resolution x")
 	rootCmd.PersistentFlags().IntVarP(&chrm.ResolutionY, "resolution-y", "Y", 900, "screenshot resolution y")
 	rootCmd.PersistentFlags().IntVar(&chrm.Delay, "delay", 0, "delay in seconds between navigation and screenshot")
